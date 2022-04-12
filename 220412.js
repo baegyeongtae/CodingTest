@@ -9,77 +9,37 @@
 2022 KAKAO BLIND RECRUITMENT 신고 결과 받기
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/92334
+https://programmers.co.kr/learn/courses/30/lessons/12969
 */
 
-// 첫번째 풀이 -----------------------------------------------------------------------------------------------
 
-function solution(id_list, report, k) {
-  var answer = [];
+// 기본 틀
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    console.log(a);
+    console.log(b);
+});
 
-  let user = new Map(); // 신고한 유저 목록
-  let target = new Map(); // 신고 당한 유저 목록
 
-  id_list.forEach((item) => user.set(item, new Set())); // user = Map { 'con' => Set {}, 'ryan' => Set {} }
 
-  report.forEach((item) => {
-    let arr = item.split(" ");
-    user.set(arr[0], user.get(arr[0]).add(arr[1]));
-    target.set(arr[1], 0);
-  });
-  // user = Map { 'con' => Set {}, 'ryan' => Set { 'con' } }
-  // target = Map { 'con' => 0 }
-
-  let twoTarget = []; // k번 신고 당한 유저
-
-  for (let [key, value] of user) {
-    value.forEach((item) => {
-      target.set(item, target.get(item) + 1);
-    });
-  }
-
-  for (let [key, value] of target) {
-    if (value >= k) twoTarget.push(key);
-  }
-  // target = Map { 'con' => 1 }
-
-  user.forEach((item) => {
-    let number = 0;
-    item.forEach((item) => {
-      if (twoTarget.includes(item)) number++;
-    });
-    answer.push(number);
-  });
-
-  console.log(answer);
-
-  return answer;
-}
-
-// 두번째 풀이 -----------------------------------------------------------------------------------------------
-
-function solution(id_list, report, k) {
-  let user = new Map(); // 신고한 유저 목록
-  let target = new Map(); // 신고 당한 유저 목록
-
-  let reports = [...new Set(report)].map((item) => item.split(" "));
-
-  reports.forEach((item) => {
-    target.set(item[1], target.get(item[1]) + 1 || 1);
-  });
-
-  reports.forEach((item) => {
-    if (target.get(item[1]) >= k) {
-      user.set(item[0], user.get(item[0]) + 1 || 1);
+// 풀이
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    for (i=0; i<b;i++) {
+        let star = ""                          // 변수 선언.
+        for (j=0; j<a;j++) {
+            star += '*'
+        }
+        console.log(star)
     }
-  });
+});
 
-  let answer = id_list.map((item) => user.get(item) || 0);
-
-  return answer;
-}
 
 /*
-- 애초에 처음부터 report를 Set 으로 만들어버리면
-중복 신고 내역은 전부 사라지기 때문에 작업하기 훨씬 수월하다.
+  console.log()로 반복문을 돌리면 돌 때마다 줄이 자동으로 바뀌어져 출력된다.
+  그래서 한 줄을 만드는 반복문 바깥에 둬야 한다.
 */
