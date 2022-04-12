@@ -6,7 +6,7 @@
 레벨 1
 
 [문제]
-2022 KAKAO BLIND RECRUITMENT 신고 결과 받기
+코딩테스트 연습 > 신고 결과 받기
 
 [링크]
 https://programmers.co.kr/learn/courses/30/lessons/12969
