@@ -6,10 +6,10 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 신고 결과 받기
+코딩테스트 연습 > x만큼 간격이 있는 n개의 숫자
 
 [링크]
-x만큼 간격이 있는 n개의 숫자
+https://programmers.co.kr/learn/courses/30/lessons/12954
 */
 
 
@@ -22,18 +22,13 @@ function solution(x, n) {
 
 
 // 풀이
-process.stdin.setEncoding('utf8');
-process.stdin.on('data', data => {
-    const n = data.split(" ");
-    const a = Number(n[0]), b = Number(n[1]);
-    for (i=0; i<b; i++) {
-        let star = ""                          // 변수 선언.
-        for (j=0; j<a; j++) {
-            star += '*'
-        }
-        console.log(star)
+function solution(x, n) {
+    var answer = [];
+    for (i=0; i<n; i++) {
+        answer.push(x*(i+1))
     }
-});
+    return answer;
+}
 
 
 /*
