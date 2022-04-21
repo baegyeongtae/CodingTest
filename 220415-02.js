@@ -6,7 +6,7 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 하샤드 수
+코딩테스트 연습 > 최대공약수와 최소공배수
 
 [링크]
 https://programmers.co.kr/learn/courses/30/lessons/12940
