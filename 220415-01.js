@@ -6,10 +6,10 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 하샤드 수
+코딩테스트 연습 > 콜라츠 추측
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/12947
+https://programmers.co.kr/learn/courses/30/lessons/12943
 */
 
 
