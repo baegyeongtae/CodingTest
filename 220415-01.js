@@ -14,29 +14,32 @@ https://programmers.co.kr/learn/courses/30/lessons/12947
 
 
 // 기본 틀
-function solution(x) {
-    var answer = true;
+function solution(num) {
+    var answer = 0;
     return answer;
 }
 
 
 
 // 풀이
-function solution(x) {
-    let answer = true;
-    let num_list = '';
-    let sum = 0;
-    
-    num_list = String(x).split("")
-    
-    for (i=0; i<num_list.length; i++) {
-        sum += Number(num_list[i])
+function solution(num) {
+    var answer = 0;
+    while(answer<501 && num!==1) {
+        num%2===0 ? num = num/2 : num = num*3+1
+        answer++;
     }
-    if (x%sum === 0){
-        return answer
-    } return !answer
+    return answer<501 ? answer : -1 
 }
 
+
+
+// 다른 풀이
+const solution = (num) => collatzGuessCount(num, 0);
+
+const collatzGuessCount = (num, acc) => 
+  (num === 1) ? ((acc > 500) ? -1 : acc) : collatzGuessCount(processCollatz(num), acc + 1);
+
+const processCollatz = (num) => (num % 2 === 0) ? (num / 2) : (num * 3 + 1);
 
 /*
 
