@@ -33,19 +33,19 @@ function solution(n)
 
 
 // 다른 풀이 1
-function solution(n) {
-    // 문자풀이
-    // return (n+"").split("").reverse().map(v => parseInt(v));
+function solution(n){
+    // 문자 풀이
+    // return (n+"").split("").reduce((acc, curr) => acc + parseInt(curr), 0)
 
     // 숫자풀이
-    var arr = [];
+    var sum = 0;
 
     do {
-        arr.push(n%10);
+        sum += n%10;
         n = Math.floor(n/10);
-    } while (n>0);
+    } while(n > 0);
 
-    return arr;
+    return sum;
 }
 
 
