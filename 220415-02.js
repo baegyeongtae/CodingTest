@@ -9,34 +9,54 @@
 코딩테스트 연습 > 하샤드 수
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/12947
+https://programmers.co.kr/learn/courses/30/lessons/12940
 */
 
 
 // 기본 틀
-function solution(x) {
-    var answer = true;
+function solution(n, m) {
+    var answer = [];
     return answer;
 }
 
 
 
 // 풀이
-function solution(x) {
-    let answer = true;
-    let num_list = '';
-    let sum = 0;
+function solution(n, m) {
+    var answer = [];
+    let gcd = 1;
+    let lcm = 1;
     
-    num_list = String(x).split("")
-    
-    for (i=0; i<num_list.length; i++) {
-        sum += Number(num_list[i])
+    for(i=2; i<=Math.min(n, m); i++) {
+        if(n%i === 0 && m%i===0) {
+            gcd = i;
+        }
     }
-    if (x%sum === 0){
-        return answer
-    } return !answer
+    lcm = (n/gcd) * (m/gcd) * gcd
+    answer.push(gcd, lcm)
+    return answer;
 }
 
+
+
+// 다른 풀이 1
+function greatestCommonDivisor(a, b) {return b ? greatestCommonDivisor(b, a % b) : Math.abs(a);}
+function leastCommonMultipleOfTwo(a, b) {return (a * b) / greatestCommonDivisor(a, b);}
+function gcdlcm(a, b) {
+    return [greatestCommonDivisor(a, b),leastCommonMultipleOfTwo(a, b)];
+}
+
+// 아래는 테스트로 출력해 보기 위한 코드입니다.
+console.log(gcdlcm(3,12));
+
+
+
+//다른 풀이 2
+function gcdlcm(a, b) {
+    var r;
+    for(var ab= a*b;r = a % b;a = b, b = r){}
+    return [b, ab/b];
+}
 
 /*
 
