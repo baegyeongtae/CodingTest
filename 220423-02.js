@@ -9,16 +9,16 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 수박수박수박수박수박수?
+코딩테스트 연습 > 연습문제 > 문자열 내림차순으로 배치하기
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/12922
+https://programmers.co.kr/learn/courses/30/lessons/12917
 */
 
 
 // 기본 틀
-function solution(n) {
-    var answer = 0;
+function solution(s) {
+    var answer = '';
     return answer;
 }
 
@@ -26,17 +26,35 @@ function solution(n) {
 
 // 풀이
 function solution(s) {
-    return Number(s);
+    var answer = '';
+    let list = [];
+    let reverse = [];
+    let number = '';
+    answer = s.split('')
+    for(i=0; i<s.length; i++) {
+        number = s.charCodeAt(i)
+        list.push(number)
+    }
+    list.sort((a,b) => b-a)
+    for(i=0; i<list.length; i++) {
+        number = String.fromCharCode(list[i])
+        reverse.push(number)
+    }
+    let last = reverse.join('')
+    return last;
 }
 
 
 
 
 // 다른 풀이 
-const waterMelon = n => "수박".repeat(n).slice(0,n);
-
-console.log("n이 3인 경우: "+ waterMelon(3))
-console.log("n이 4인 경우: "+ waterMelon(4))
+function solution(s) {
+  return s
+    .split("")
+    .sort()
+    .reverse()
+    .join("");
+}
 
 /*
 
