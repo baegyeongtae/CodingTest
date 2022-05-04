@@ -9,16 +9,16 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 수박수박수박수박수박수?
+코딩테스트 연습 > 연습문제 > 문자열 다루기 기본
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/12922
+https://programmers.co.kr/learn/courses/30/lessons/12918
 */
 
 
 // 기본 틀
-function solution(n) {
-    var answer = 0;
+function solution(s) {
+    var answer = true;
     return answer;
 }
 
@@ -26,17 +26,29 @@ function solution(n) {
 
 // 풀이
 function solution(s) {
-    return Number(s);
+    if(s.length === 4 || s.length === 6) {
+        for (i=0; i<s.length; i++) {
+            let number = s.charCodeAt(i);
+            if(number < 48 || number > 57) {
+                return false
+            }
+        }
+        return true
+    }
+    return false
 }
 
 
 
-
 // 다른 풀이 
-const waterMelon = n => "수박".repeat(n).slice(0,n);
+function alpha_string46(s){
+  var regex = /^\d{6}$|^\d{4}$/;
+  return regex.test(s);
+}
 
-console.log("n이 3인 경우: "+ waterMelon(3))
-console.log("n이 4인 경우: "+ waterMelon(4))
+
+// 아래는 테스트로 출력해 보기 위한 코드입니다.
+console.log( alpha_string46("a234") );
 
 /*
 
