@@ -7,71 +7,43 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 연습문제 > 시저 암호
+코딩테스트 연습 > 연습문제 > 서울에서 김서방 찾기
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/12926
+https://programmers.co.kr/learn/courses/30/lessons/12919
 */
 
 
 // 기본 틀
-function solution(s, n) {
-    var answer = 0;
+function solution(seoul) {
+    var answer = '';
     return answer;
 }
 
 
 
 // 풀이
-function solution(s, n) {
+function solution(seoul) {
     var answer = '';
-    let next = '';
-    for(i=0; i<s.length; i++) {
-        if(s[i] === ' ') {
-            answer = ' '
-            next += answer;
-        } else {
-            answer = s[i].codePointAt(0);
-            if (answer <= 90 && answer >= 65) {
-                answer += n;
-                if (!(answer <= 90 && answer >= 65)) {
-                    answer -= 26;
-                }
-                next += String.fromCharCode(answer);
-            } else if (answer <= 122  && answer >= 97) {
-                answer += n;
-                if (!(answer <= 122 && answer >= 97)) {
-                    answer -= 26;
-                }
-                next += String.fromCharCode(answer);
-            }
-        }
-    }
-    return next;
+    seoul.map(name => {
+        if (name === "Kim") {
+            answer = seoul.indexOf(name)
+        } 
+    })
+    return "김서방은 "+answer+"에 있다"
 }
 
 
 
 
 // 다른 풀이 
-function solution(s, n) {
-    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var lower = "abcdefghijklmnopqrstuvwxyz";
-    var answer= '';
-
-    for(var i =0; i <s.length; i++){
-        var text = s[i];
-        if(text == ' ') {
-            answer += ' '; 
-            continue;
-        }
-        var textArr = upper.includes(text) ? upper : lower;
-        var index = textArr.indexOf(text)+n;
-        if(index >= textArr.length) index -= textArr.length;
-        answer += textArr[index];
-    }
-    return answer;
+function findKim(seoul){
+  var idx = seoul.indexOf('Kim');
+  return "김서방은 " + idx + "에 있다";
 }
+
+// 실행을 위한 테스트코드입니다.
+console.log( findKim(["Queen", "Tod", "Kim"]));
 
 /*
 
