@@ -9,34 +9,48 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 수박수박수박수박수박수?
+코딩테스트 연습 > 월간 코드 챌린지 시즌3 > 나머지가 1이 되는 수 찾기
+
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/12922
+https://programmers.co.kr/learn/courses/30/lessons/87389
 */
 
 
 // 기본 틀
-function solution(n) {
-    var answer = 0;
+function solution(price, money, count) {
+    var answer = -1;
+
     return answer;
 }
 
 
 
 // 풀이
-function solution(s) {
-    return Number(s);
+function solution(n) {
+    var answer = 0;
+    for(i=0; i<n; i++) {
+        if(n%i === 1) {
+            answer = i
+        }
+        if (answer !== 0) {
+            return answer
+        }
+    }
 }
 
 
 
 
-// 다른 풀이 
-const waterMelon = n => "수박".repeat(n).slice(0,n);
+// 다른 풀이 1
+function solution(n, x = 1) {    
+    while (x++) {
+        if (n % x === 1) {
+            return x;
+        }
+    }    
+}
 
-console.log("n이 3인 경우: "+ waterMelon(3))
-console.log("n이 4인 경우: "+ waterMelon(4))
 
 /*
 
