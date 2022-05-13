@@ -9,10 +9,10 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 2019 KAKAO BLIND RECRUITMENT > 실패율
+코딩테스트 연습 > 찾아라 프로그래밍 마에스터 > 폰켓몬
 
 [링크]
-https://programmers.co.kr/learn/courses/30/lessons/77884
+https://programmers.co.kr/learn/courses/30/lessons/1845
 */
 
 
@@ -20,7 +20,7 @@ https://programmers.co.kr/learn/courses/30/lessons/77884
 
 
 // 기본 틀
-function solution(left, right) {
+function solution(nums) {
     var answer = 0;
     return answer;
 }
@@ -28,28 +28,18 @@ function solution(left, right) {
 
 
 // 풀이
-function solution(N, stages) {
-    var answer = [];
-    let countSon = 0;
-    let countParent = 0;
-    let percent = 0;
-    let arr = [];
-
-    for(let i=1; i<=N; i++) {
-        stages.map((stage) => {
-            if(stage===i) {
-                countSon++;
-                countParent++;
-            } 
-            else if(stage>i) {countParent++;}
-        })
-        percent = countSon/countParent
-        answer.push([percent, i])
-        countSon = 0;
-        countParent = 0;
-    }
-    answer.sort((a,b) => b[0]-a[0]).map((v) => arr.push(v[1]))
-    return arr
+function solution(nums) {
+    var answer = 0;
+    let cur = 0;
+    nums.sort((a, b) => a-b).map((v) => {
+        if (answer < nums.length/2) {
+            if (cur !== v) {
+                cur = v;
+                answer++;
+            }
+        }
+    })
+    return answer
 }
 
 
@@ -59,31 +49,23 @@ function solution(N, stages) {
 
 
 // 다른 풀이 1
-function solution(N, stages) {
-    let result = [];
-    for(let i=1; i<=N; i++){
-        let reach = stages.filter((x) => x >= i).length;
-        let curr = stages.filter((x) => x === i).length;
-        result.push([i, curr/reach]);
-    }
-    result.sort((a,b) => b[1] - a[1]);
-    return result.map((x) => x[0]);
+function solution(nums) {
+  const max = nums.length / 2;
+  const arr = [...new Set(nums)];
+
+  return arr.length > max ? max : arr.length
 }
 
 
 
 
 // 다른 풀이 2
-function solution(N, stages) {
-    let tempArr = stages;
-    let answerObj = {};
-    for ( let i = 1; i <= N; i++ ) {
-        let top = tempArr.filter(el => el === i).length;
-        let bottom = tempArr.length;
-        answerObj[i] = top/bottom;
-        tempArr = tempArr.filter(el => el !== i);    
-    }
-    return Object.entries(answerObj).sort((a,b) => b[1] - a[1]).map(v => +v[0])
+function solution(nums) {
+    const noDuplicatePokemon = new Set(nums);
+    const pokemonVarietyCount = noDuplicatePokemon.size;
+    const pokemonCounts = nums.length;
+    return pokemonVarietyCount > pokemonCounts/2 ? pokemonCounts/2 : pokemonVarietyCount;
+
 }
 
 
