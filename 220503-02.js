@@ -17,8 +17,8 @@ https://programmers.co.kr/learn/courses/30/lessons/12982
 
 
 // 기본 틀
-function solution(numbers) {
-    var answer = [];
+function solution(d, budget) {
+    var answer = 0;
     return answer;
 }
 
