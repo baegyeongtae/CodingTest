@@ -8,7 +8,7 @@
 레벨 1
 
 [문제]
-코딩테스트 연습 > 찾아라 프로그래밍 마에스터 > K
+코딩테스트 연습 > 정렬 > K번째 수
 
 [링크]
 https://programmers.co.kr/learn/courses/30/lessons/42748
